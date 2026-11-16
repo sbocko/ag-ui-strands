@@ -1,0 +1,4 @@
+ag-ui-strands>=1.0,<2
+strands-agents>=1.55,<2
+uvicorn>=0.38,<1
+boto3>=1.40,<2

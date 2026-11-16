@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review Desk | AG-UI + Strands</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">R<span>.</span></span><span>REVIEW DESK</span></div>
+        <div class="connection"><span class="connection-dot"></span> AG-UI / STRANDS</div>
+      </header>
+      <main class="workspace">
+        <div class="workspace-heading">
+          <div class="eyebrow">WORKSPACE / 01</div>
+          <h1>Review planner<span class="accent">.</span></h1>
+          <p>Plan document reviews with an agent.</p>
+        </div>
+        <div class="workspace-grid">
+        <section class="conversation" aria-label="Conversation">
+          <div class="conversation-header"><span>CONVERSATION</span><button id="reset" type="button" title="New conversation" aria-label="New conversation">↻</button></div>
+          <div id="messages" class="messages" role="log" aria-live="polite">
+            <div class="empty-state"><span class="empty-icon">✳</span><h2>Start with a question.</h2><p>For example: How long will it take to review 12 documents?</p></div>
+          </div>
+          <section id="visualization" class="visualization" aria-label="Review time chart" hidden>
+            <div class="visualization-header"><span>REVIEW TIME BY BATCH</span><span id="chart-rate"></span></div>
+            <div class="chart-container"><canvas id="review-chart" role="img" aria-label="Estimated review minutes by document count" aria-describedby="chart-values"></canvas></div>
+            <span id="chart-values" class="sr-only"></span>
+          </section>
+          <form id="composer" class="composer">
+            <label for="prompt" class="sr-only">Message</label>
+            <input id="prompt" name="prompt" placeholder="Ask about a document review…" autocomplete="off" required />
+            <button id="send" type="submit" title="Send message" aria-label="Send message">↗</button>
+          </form>
+        </section>
+        <aside class="event-trace" aria-label="AG-UI event stream">
+          <div class="trace-header"><span>AG-UI EVENT STREAM</span><span id="event-count">0 EVENTS</span></div>
+          <ol id="events" class="events" aria-live="polite"></ol>
+        </aside>
+        </div>
+        <footer>LIVE EVENT STREAM <span>·</span> AGENTCORE READY</footer>
+      </main>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

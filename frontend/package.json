@@ -1,0 +1,16 @@
+{
+  "name": "review-planner-ui",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@ag-ui/client": "^1.0.0",
+    "chart.js": "^4.6.1"
+  },
+  "devDependencies": {
+    "vite": "^7.0.0"
+  }
+}

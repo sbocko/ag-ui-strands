@@ -1,0 +1,137 @@
+.workspace {
+  width: min(1200px, calc(100% - 32px));
+}
+
+.workspace-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 350px);
+  align-items: start;
+  gap: 16px;
+}
+
+.event-trace {
+  height: min(630px, calc(100dvh - 260px));
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dce2dc;
+  background: #fff;
+}
+
+.trace-header {
+  height: 51px;
+  flex: none;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px solid #e8ede8;
+  color: #52736a;
+  font: 11px 'DM Mono', monospace;
+  white-space: nowrap;
+}
+
+#event-count {
+  color: #8b9b93;
+}
+
+.events {
+  margin: 0;
+  padding: 0 16px;
+  overflow: auto;
+  list-style: none;
+  counter-reset: event;
+  font: 11px 'DM Mono', monospace;
+}
+
+.events li {
+  counter-increment: event;
+  position: relative;
+  padding: 17px 0 17px 34px;
+  border-bottom: 1px solid #edf0ec;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.events li::before {
+  content: counter(event, decimal-leading-zero);
+  position: absolute;
+  top: 17px;
+  left: 0;
+  color: #96a79e;
+}
+
+.event-type {
+  color: #276451;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.event-detail {
+  color: #64746d;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.conversation:has(.visualization:not([hidden])),
+.workspace-grid:has(.visualization:not([hidden])) .event-trace {
+  height: min(720px, calc(100dvh - 100px));
+  min-height: 640px;
+}
+
+.visualization[hidden] {
+  display: none;
+}
+
+.visualization {
+  flex: none;
+  padding: 16px 24px 12px;
+  border-top: 1px solid #e8ede8;
+  background: #fbfcfa;
+}
+
+.visualization-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #52736a;
+  font: 11px 'DM Mono', monospace;
+}
+
+#chart-rate {
+  color: #9a6a4b;
+  text-align: right;
+}
+
+.chart-container {
+  position: relative;
+  height: 190px;
+  margin-top: 10px;
+}
+
+.chart-container canvas {
+  max-width: 100%;
+}
+
+@media (max-width: 800px) {
+  .workspace-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .event-trace {
+    height: 280px;
+    min-height: 0;
+  }
+
+  .conversation:has(.visualization:not([hidden])) {
+    height: 720px;
+  }
+
+  .workspace-grid:has(.visualization:not([hidden])) .event-trace {
+    height: 280px;
+    min-height: 0;
+  }
+}
